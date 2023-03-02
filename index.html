@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2344/2344120.png" type="image/x-icon">
+        <title>Freelancer Pratform</title>
+    </head>
+  <body>
+    <div class="cabecalho">
+        <img src="https://cdn-icons-png.flaticon.com/512/2344/2344120.png" alt="">
+        <span>Freelancer Platform</span>
+        <button id="connectWalletBtn">Conect wallet</button>
+    </div>
+    <div class="body-all">
+    <div class="add">
+    <div class="add-freelancer">
+        <h1 id="title-div">Add Freelancer</h1>
+        <input class="input" type="text" placeholder="Name" id="freelancer-name-input">
+        <input class="input" type="text" placeholder="Skills" id="freelancer-skills-input">
+        <input class="input" type="text" placeholder="Experience" id="freelancer-experience-input">
+        <input class="input" type="text" placeholder="Portfolio" id="freelancer-portfolio-input">
+        <button class="button" id="add-freelancer-btn">Add</button>
+    </div>
+    <div class="post-job">
+        <h1 id="title-div">Post Job</h1>
+        <input class="input" type="text" placeholder="Title" id="job-title-input">
+        <input class="input" type="text" placeholder="Description" id="job-description-input">
+        <input class="input" type="number" step="0.01" placeholder="Budget" id="job-budget-input">
+        <button class="button" id="post-job-btn">Add</button>
+    </div>
+    </div>
+    <div class="available-jobs" id="available-jobs">
+        <h1 id="title-div">Available Jobs</h1>
+        <div class="job">
+        </div>
+    </div>
+    <div class="pendent-jobs" id="pendent-jobs">
+        <h1 id="title-div">Pendent Jobs</h1>
+        <div class="job">
+        </div>
+    </div>
+    <div class="completed-jobs" id="completed-jobs">
+        <h1 id="title-div">Completed Jobs</h1>
+        <div class="job">
+        </div>
+    </div>
+    <div class="add">
+    <div class="rate-freelancer">
+        <h1 id="title-div">Rate Freelancer</h1>
+        <input class="input" type="text" placeholder="Freelancer Address" id="address-rate">
+        <form>
+            <fieldset class="rating">
+              <input type="radio" id="star5" name="rating" value="5">
+              <label for="star5" title="Excelente">★</label>
+              <input type="radio" id="star4" name="rating" value="4">
+              <label for="star4" title="Bom">★</label>
+              <input type="radio" id="star3" name="rating" value="3">
+              <label for="star3" title="Regular">★</label>
+              <input type="radio" id="star2" name="rating" value="2">
+              <label for="star2" title="Ruim">★</label>
+              <input type="radio" id="star1" name="rating" value="1">
+              <label for="star1" title="Muito Ruim">★</label>
+            </fieldset>
+          </form>
+    </div>
+    <div class="available-freelancers" id="available-freelancers">
+        <h1 id="title-div">Available Freelancers</h1>
+    <div class="freelancer">
+        
+        
+    </div>
+    </div>
+    
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7/web3.min.js"
+    integrity="sha512-yAmmVkOXqtDZRaueLdmLwMB67JtaRtjFzQGiAiJKvLiFlDvq4Tzm5R6uLcOMyvPRQlXpYHdYxc5IbiCwuquhUw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./script.js"></script>
+</body>
+
+</html>

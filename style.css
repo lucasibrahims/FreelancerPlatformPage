@@ -1,0 +1,333 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+
+    height: 100%;
+    align-items: center;
+
+}
+.cabecalho {
+    display: flex;
+    background-color: #9e1e4c;
+    padding: 16px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 38px;
+    font-weight: bold;
+    color: #ececec;
+
+}
+
+.cabecalho img {
+    width: 70px;
+}
+
+#connectWalletBtn {
+    font-size: 16px;
+    padding: 8px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    background-color: black;
+    color: #9e1e4c ;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#connectWalletBtn:hover {
+    background-color: #9e1e4c ;
+    color: black;
+}
+
+.add {
+flex-direction: column;
+}
+.body-all{
+    margin-top: 30px;
+    margin-left: 20px;
+    display: flex;
+}
+.add-freelancer {
+    width: 200px;
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    height: 100%;
+    border-color: #9e1e4c;
+    border-width: 3px;
+    border-style: none;
+    align-items: center;
+    background-color: #8f8f8f;
+}
+#title-div {
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #ececec;
+
+}
+.input {
+    padding: 6px;
+    height: fit-content;
+    width: 160px;
+    font-size: 15px;
+    margin-top: 15px;
+    border: solid;
+    border-width: 2px;
+    border-radius: 6px;
+    border-color: #9e1e4c;
+    color: #25020f;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.button {
+    padding: 6px;
+    width: 80px;
+    height: fit-content;
+    font-size: 15px;
+    margin-top: 15px;
+    border: 2px;
+    border-style: solid;
+    border-color: #ff1168;
+    border-radius: 6px;
+    color: #25020f;
+    background-color: #ff1168;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    align-self: center;
+}
+
+.button:hover {
+    background-color: black ;
+    color: #ff1168;
+}
+
+.post-job {
+    margin-top: 30px;
+    width: 200px;
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    height: 100%;
+    border-color: #9e1e4c;
+    border-width: 3px;
+    border-style: none;
+    align-items: center;
+    background-color: #8f8f8f;
+}
+
+.available-jobs {
+    margin-left: 20px;
+    padding: 10px;
+    width: 400px;
+    height: 730px;
+    max-height: 730px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    border-color: #9e1e4c;
+    border-width: 3px;
+    border-style: none;
+    align-items: center;
+    background-color: #8f8f8f;
+    overflow-x: auto;
+}
+
+.job {
+    width: 350px;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    border-style: none;
+    align-items: left;
+    background-color: #ececec;
+}
+
+.job-title {
+    font-size: 18px;
+    border: none;
+    font-weight: bold;
+    text-align: left;
+    background-color: #ececec;
+    color: #9e1e4c;
+}
+
+.job-information-title
+{
+    font-size: 15px;
+    margin-top: 6px;
+    border: none;
+    font-weight: bold;
+    text-align: left;
+    background-color: #ececec;
+
+}
+
+.accept-job-button {
+    padding: 3px;
+    margin: 2px;
+    font-size: 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: green;
+    cursor: pointer;
+    color: white;
+    width: 90px;
+    height: 30px;
+    align-self: center;
+}
+
+.accept-job-button:hover {
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    color: green;
+    width: 90px;
+    height: 30px;
+    border: solid;
+    border-width: 2px;
+}
+.pendent-jobs {
+    margin-left: 20px;
+    padding: 10px;
+    width: 400px;
+    height: 730px;
+    max-height: 730px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    border-color: #9e1e4c;
+    border-width: 3px;
+    border-style: none;
+    align-items: center;
+    background-color: #8f8f8f;
+    overflow-x: auto;
+}
+
+.completed-jobs {
+    margin-left: 20px;
+    padding: 10px;
+    width: 400px;
+    height: 730px;
+    max-height: 730px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    border-color: #9e1e4c;
+    border-width: 3px;
+    border-style: none;
+    align-items: center;
+    background-color: #8f8f8f;
+    overflow-x: auto;
+}
+.rate-freelancer {
+    max-width: 100%;
+    max-height: 240px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    height: 100%;
+    border-color: #9e1e4c;
+    border-width: 3px;
+    border-style: none;
+    align-items: center;
+    background-color: #8f8f8f;
+    margin-left: 20px;
+}
+
+.rating {
+    margin-top: 10px;
+    border-style: none;
+}
+
+.rating input {
+    display: none;
+    border-style: none;
+    align-items: center;
+  }
+  
+  /* Estilo das estrelas */
+  .rating label {
+    display: inline-block;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #ddd;
+  }
+  
+  .rating input:checked + label {
+    color: #f90;
+  }
+  
+  .rating label:hover,
+  .rating label:hover ~ label {
+    color: #f90;
+  }
+  .available-freelancers {
+    max-width: 100%;
+    max-height: 460px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    height: 100%;
+    border-color: #9e1e4c;
+    border-width: 3px;
+    border-style: none;
+    align-items: center;
+    background-color: #8f8f8f;
+    margin-left: 20px;
+}
+
+.freelancer {
+    width: 250px;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    border-style: none;
+    align-items: left;
+    background-color: #ececec;
+}
+
+  
+  
+
+/* .color1 { #9e1e4c };
+.color2 { #ff1168 };
+.color3 { #25020f };
+.color4 { #8f8f8f };
+.color5 { #ececec }; */
