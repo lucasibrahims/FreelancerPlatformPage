@@ -296,7 +296,7 @@ const freelancePlatformABI = [
 const freelancePlatformAddress = "0x06aaF62e22528e498385fEB0479788Bbe5f0aeb0";
 const instance = new web3.eth.Contract(freelancePlatformABI, freelancePlatformAddress)
 
-//ELEMENTS HTML
+//ELEMENTS HTML//
 const connectWalletBtn = document.getElementById("connectWalletBtn")
 
 //ADD FREELANCER ELEMENTS
