@@ -293,7 +293,7 @@ const freelancePlatformABI = [
       "type": "function"
     }
   ];
-const freelancePlatformAddress = "0x3B4602c43FFF5F7b0A8FB90E29998D1dB1CC3BE9";
+const freelancePlatformAddress = "0x06aaF62e22528e498385fEB0479788Bbe5f0aeb0";
 const instance = new web3.eth.Contract(freelancePlatformABI, freelancePlatformAddress)
 
 //ELEMENTS HTML
@@ -340,7 +340,7 @@ async function postJob(_title, _description, _budget){
     if (ethereum) {
         try {
             let accounts = await ethereum.request({ method: "eth_requestAccounts" })
-            let call = await instance.methods.postJob(_title, _description, _budget).send({ from: accounts[0] })
+            let call = await instance.methods.postJob(_title, _description, (_budget)).send({ from: accounts[0], value: _budget * 10 ** 18})
             return call;
         } catch (error) {
             console.log(error)
@@ -430,6 +430,21 @@ async function completeJob(_id){
         alert("Please Install Metamask!!")
     } 
 }
+
+async function approveJob(_id){
+    if (ethereum) {
+        try {
+            let accounts = await ethereum.request({ method: "eth_requestAccounts" })
+            let call = await instance.methods.approveJob(_id).send({ from: accounts[0] })
+            return call;
+        } catch (error) {
+            console.log(error)
+        }
+    } else {
+        alert("Please Install Metamask!!")
+    } 
+}
+
 
 async function getFreelancer(_address)
 {
@@ -544,23 +559,35 @@ getJobs().then((res) => {
             jobsElement[i].appendChild(client);
 
 
-            if(res[i].jobCompleted)
+            if(res[i].jobCompleted && !res[i].jobApproved)
             {
-                getFreelancer(res[i].freelancer).then((freela) => {
+                getFreelancer(res[i].freelancer).then((resposta) => {
+                    console.log(res[i].freelancer)
                     let freelancerTitle = document.createElement("p");
                     freelancerTitle.className = "job-information-title";
                     freelancerTitle.innerHTML = "Freelancer";
                     jobsElement[i].appendChild(freelancerTitle);
                     let freelancer = document.createElement("p");
                     freelancer.className = "job-information";
-                    freelancer.innerHTML = freela.name; 
+                    freelancer.innerHTML = resposta.name; 
                     jobsElement[i].appendChild(freelancer);
+                    let acceptBtn = document.createElement("button");
+                    acceptBtn.className = "accept-job-button"
+                    acceptBtn.innerHTML = "Approved"
+                    jobsElement[i].appendChild(acceptBtn);
                     completedZone.appendChild(jobsElement[i]);
+                    acceptBtn.addEventListener("click", () => {
+                        approveJob(i+1).then((res) => {
+                            alert("Approved!");
+                        }).catch((err) => {
+                            alert(err);
+                        })
+                    })
                 })
 
 
             }
-            else if(res[i].jobApproved)
+            else if(res[i].freelancer != "0x0000000000000000000000000000000000000000" && !res[i].jobApproved)
             {
                 let acceptBtn = document.createElement("button");
                 acceptBtn.className = "accept-job-button"
@@ -575,7 +602,7 @@ getJobs().then((res) => {
                     })
                 })
             }
-            else {
+            else if(!res[i].jobApproved){
                 let budgetTitle = document.createElement("p");
                 budgetTitle.className = "job-information-title";
                 budgetTitle.innerHTML = "Budget";
@@ -607,7 +634,6 @@ getJobs().then((res) => {
                 let freelancerElement = [];
                 for(let i=0; i<res.length; i++)
                 {
-                    console.log(res[i])
                     freelancerElement[i] = document.createElement("div")
                     freelancerElement[i].className = "freelancer"
                     let freelancerName = document.createElement("h2")
@@ -652,3 +678,6 @@ getJobs().then((res) => {
         }
     })
 });
+
+getFreelancer("0x44b28AC5aba0d1fD62CdAf46B699F4270d3C8996").then((res) => 
+console.log(res))
