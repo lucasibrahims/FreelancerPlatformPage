@@ -1,299 +1,305 @@
 //DADOS
 const web3 = new Web3(ethereum);
 const freelancePlatformABI = [
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "freela",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "freelancerId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "string",
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "skills",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "experience",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "portfolio",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "rating",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "rateCount",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [],
-      "name": "freelancerCounter",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "freelancers",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "freelancerId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "string",
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "skills",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "experience",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "portfolio",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "rating",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "rateCount",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [],
-      "name": "jobCounter",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "jobs",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "jobId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "string",
-          "name": "jobTitle",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "jobDescription",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "jobBudget",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "client",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "freelancer",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "jobCompleted",
-          "type": "bool"
-        },
-        {
-          "internalType": "bool",
-          "name": "jobApproved",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_title",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_description",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_budget",
-          "type": "uint256"
-        }
-      ],
-      "name": "postJob",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_jobId",
-          "type": "uint256"
-        }
-      ],
-      "name": "applyForJob",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_jobId",
-          "type": "uint256"
-        }
-      ],
-      "name": "completeJob",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_jobId",
-          "type": "uint256"
-        }
-      ],
-      "name": "approveJob",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_name",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_skills",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_experience",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_portfolio",
-          "type": "string"
-        }
-      ],
-      "name": "addFreelancer",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_freelancer",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_rating",
-          "type": "uint256"
-        }
-      ],
-      "name": "rateFreelancer",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    }
-  ];
-const freelancePlatformAddress = "0x06aaF62e22528e498385fEB0479788Bbe5f0aeb0";
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "freela",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "freelancerId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "skills",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "experience",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "portfolio",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "rating",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "rateCount",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "freelancerCounter",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "freelancers",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "freelancerId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "skills",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "experience",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "portfolio",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "rating",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "rateCount",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "jobCounter",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "jobs",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "jobId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "jobTitle",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "jobDescription",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "jobBudget",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "client",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "freelancer",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "jobCompleted",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "jobApproved",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_title",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_description",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_budget",
+        "type": "uint256"
+      }
+    ],
+    "name": "postJob",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function",
+    "payable": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_jobId",
+        "type": "uint256"
+      }
+    ],
+    "name": "applyForJob",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_jobId",
+        "type": "uint256"
+      }
+    ],
+    "name": "completeJob",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_jobId",
+        "type": "uint256"
+      }
+    ],
+    "name": "approveJob",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_skills",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_experience",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_portfolio",
+        "type": "string"
+      }
+    ],
+    "name": "addFreelancer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_freelancer",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_rating",
+        "type": "uint256"
+      }
+    ],
+    "name": "rateFreelancer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+];
+const freelancePlatformAddress = "0x1f3b34b705b9235C5f99e40d2CCFe575E86AE5aC";
 const instance = new web3.eth.Contract(freelancePlatformABI, freelancePlatformAddress)
 
 //ELEMENTS HTML//
